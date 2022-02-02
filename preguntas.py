@@ -29,6 +29,7 @@ def pregunta_01():
 
 
 def pregunta_02():
+    pass
     """
     Retorne la cantidad de registros por cada letra de la primera columna como la lista
     de tuplas (letra, cantidad), ordendas alfabéticamente.
