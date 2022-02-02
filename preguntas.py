@@ -29,7 +29,16 @@ def pregunta_01():
 
 
 def pregunta_02():
-    pass
+    with open('data.csv') as file:
+        content = file.readlines()
+        content = [(x.strip().split('\t')[0]) for x in content]
+        content = sorted(content)
+        letras = list()
+        rta = list()
+        for i in content:
+            if i not in letras:
+                letras.append(i)
+                rta.append((i, content.count(i)))
     """
     Retorne la cantidad de registros por cada letra de la primera columna como la lista
     de tuplas (letra, cantidad), ordendas alfabéticamente.
@@ -44,7 +53,7 @@ def pregunta_02():
     ]
 
     """
-    return
+    return rta
 
 
 def pregunta_03():
