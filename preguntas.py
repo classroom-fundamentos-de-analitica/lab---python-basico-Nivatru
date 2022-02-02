@@ -130,7 +130,7 @@ def pregunta_05():
             acum = list()
             for e in content:
                 if e[0] == i:
-                    acum.append(e[1])
+                    acum.append(int(e[1]))
             rta.append((i, max(acum), min(acum)))
     """
     Retorne una lista de tuplas con el valor maximo y minimo de la columna 2 por cada
