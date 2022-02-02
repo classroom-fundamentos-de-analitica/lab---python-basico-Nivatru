@@ -57,6 +57,17 @@ def pregunta_02():
 
 
 def pregunta_03():
+    with open('data.csv') as file:
+        content = file.readlines()
+        content = [(x.strip().split('\t')[0:2]) for x in content]
+        letras = sorted((list(set([x[0] for x in content]))))
+        rta = list()
+        for i in letras:
+            acum = 0
+            for e in content:
+                if e[0] == i:
+                    acum += int(e[1])
+            rta.append((i, acum))
     """
     Retorne la suma de la columna 2 por cada letra de la primera columna como una lista
     de tuplas (letra, suma) ordendas alfabeticamente.
@@ -71,10 +82,20 @@ def pregunta_03():
     ]
 
     """
-    return
+    return rta
 
 
 def pregunta_04():
+    with open('data.csv') as file:
+        content = file.readlines()
+        content = [x.strip().split('\t')[2][5:7] for x in content]
+        content = sorted(content)
+        meses = list()
+        rta = list()
+        for i in content:
+            if i not in meses:
+                meses.append(i)
+                rta.append((i, content.count(i)))
     """
     La columna 3 contiene una fecha en formato `YYYY-MM-DD`. Retorne la cantidad de
     registros por cada mes, tal como se muestra a continuación.
@@ -96,10 +117,21 @@ def pregunta_04():
     ]
 
     """
-    return
+    return rta
 
 
 def pregunta_05():
+    with open('data.csv') as file:
+        content = file.readlines()
+        content = [(x.strip().split('\t')[0:2]) for x in content]
+        letras = sorted((list(set([x[0] for x in content]))))
+        rta = list()
+        for i in letras:
+            acum = list()
+            for e in content:
+                if e[0] == i:
+                    acum.append(e[1])
+            rta.append((i, max(acum), min(acum)))
     """
     Retorne una lista de tuplas con el valor maximo y minimo de la columna 2 por cada
     letra de la columa 1.
@@ -114,10 +146,23 @@ def pregunta_05():
     ]
 
     """
-    return
+    return rta
 
 
 def pregunta_06():
+    with open('data.csv') as file:
+        content = file.readlines()
+        content = [x.strip().split('\t')[-1] for x in content]
+        content = ','.join(content).split(',')
+        content = [x.split(':') for x in content]
+        strings = sorted(list(set([x[0] for x in content])))
+        rta = list()
+        for i in strings:
+            valores = list()
+            for e in content:
+                if e[0] == i:
+                    valores.append(int(e[1]))
+            rta.append((i, min(valores), max(valores)))
     """
     La columna 5 codifica un diccionario donde cada cadena de tres letras corresponde a
     una clave y el valor despues del caracter `:` corresponde al valor asociado a la
@@ -139,7 +184,7 @@ def pregunta_06():
     ]
 
     """
-    return
+    return rta
 
 
 def pregunta_07():
